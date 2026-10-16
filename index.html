@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#101114">
+  <meta name="description" content="Dee status face. A color, a state word, and a capsule id. No patient data.">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; manifest-src 'self'; connect-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Dee">
+  <title>Dee</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icons/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body data-state="idle">
+  <main class="face">
+    <h1 class="visually-hidden">Dee</h1>
+    <div class="lamp-slot">
+      <div class="lamp" id="lamp" aria-hidden="true">
+        <span class="lens"></span>
+      </div>
+    </div>
+    <div class="readout">
+      <p class="capsule" id="capsule"></p>
+      <p class="state-word" id="state-word" aria-live="polite">Idle</p>
+    </div>
+    <div class="actions" id="actions" hidden>
+      <button type="button" id="yes">Yes</button>
+      <button type="button" id="no">No</button>
+    </div>
+  </main>
+  <button type="button" class="demo" id="demo" aria-label="Demo: cycle status">demo</button>
+  <noscript><p class="noscript">Dee needs JavaScript to show the status face.</p></noscript>
+  <script src="./app.js"></script>
+</body>
+</html>

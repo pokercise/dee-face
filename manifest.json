@@ -1,0 +1,26 @@
+{
+  "id": "/dee-face/",
+  "name": "Dee",
+  "short_name": "Dee",
+  "description": "Status face. A color, a state word, and a capsule id. No patient data.",
+  "start_url": "/dee-face/",
+  "scope": "/dee-face/",
+  "display": "standalone",
+  "background_color": "#101114",
+  "theme_color": "#101114",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
