@@ -1,0 +1,34 @@
+name: status.json face-only check
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install jsonschema
+        run: pip install "jsonschema>=4.18"
+
+      - name: status.json holds only state, capsule_id and updated
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          import jsonschema
+          schema = json.load(open('.github/status.schema.json'))
+          doc = json.load(open('status.json'))
+          errors = list(jsonschema.Draft202012Validator(schema).iter_errors(doc))
+          for e in errors:
+              print(f"status.json: {'/'.join(map(str, e.path)) or '(root)'}: {e.message}")
+          sys.exit(1 if errors else 0)
+          PY

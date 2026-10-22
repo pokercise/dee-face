@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dee status.json (face-only)",
+  "description": "status.json is public on GitHub Pages. It may hold only state, capsule_id and updated.",
+  "type": "object",
+  "required": ["state", "capsule_id", "updated"],
+  "additionalProperties": false,
+  "properties": {
+    "state": {"enum": ["idle", "waiting", "failed", "done"]},
+    "capsule_id": {"type": "string", "pattern": "^c-[A-Za-z0-9]{6}$"},
+    "updated": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z$"}
+  }
+}

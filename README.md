@@ -52,6 +52,8 @@ A URL parameter opens a state directly:
 
 `state` is `idle`, `waiting`, `failed`, or `done`. A later Duo writer can set the flag to drive the face. The page still shows only the light, the capsule id, and the state word. `updated` is not shown.
 
+CI enforces this. `.github/workflows/status-schema.yml` checks `status.json` against `.github/status.schema.json` on every push: only `state`, `capsule_id` (`c-` plus six letters or digits) and `updated` (UTC ISO time), nothing else. A case key, token or any extra field fails the build.
+
 ## Install on Android
 
 1. Open <https://pokercise.github.io/dee-face/> in Chrome.
